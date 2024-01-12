@@ -1,0 +1,39 @@
+{
+  "name": "all-core",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./scripts/start.js",
+    "start:main": "pnpm run -C packages/base dev",
+    "build:ui": "pnpm run -C packages/components1 build",
+    "prepare": "husky install",
+    "clean": "pnpm recursive exec -- rm -rf node_modules"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.6.5",
+    "inquirer": "^9.2.12",
+    "lodash": "^4.17.21",
+    "nanoid": "^5.0.4",
+    "sass": "^1.69.7",
+    "sass-loader": "^13.3.3"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^18.4.4",
+    "@commitlint/config-conventional": "^18.4.4",
+    "@typescript-eslint/eslint-plugin": "^6.18.1",
+    "@typescript-eslint/parser": "^6.18.1",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.0",
+    "prettier": "^3.1.1",
+    "typescript": "^5.3.3"
+  },
+  "lint-staged": {
+    "packages/**/*.{js,jsx,ts,tsx,vue}": "eslint --max-warnings=0"
+  }
+}
