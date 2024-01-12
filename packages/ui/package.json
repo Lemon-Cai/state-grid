@@ -1,0 +1,36 @@
+{
+  "name": "@apps/ui",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "main": "./lib/index.js",
+  "module": "./es/index.js",
+  "exports": {
+    ".": {
+      "import": "./es/index.es.js",
+      "require": "./lib/index.cjs.js"
+    },
+    "./lib": {
+      "require": "./lib/index.cjs.js"
+    },
+    "./es": {
+      "import": "./es/index.es.js"
+    }
+  },
+  "style": "es/style.css",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@apps/components": "workspace:^",
+    "vue": "^3.3.11"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.5.2",
+    "typescript": "^5.2.2",
+    "vite": "^5.0.8",
+    "vue-tsc": "^1.8.25"
+  }
+}

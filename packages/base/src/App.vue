@@ -1,12 +1,21 @@
+<!--
+ * @Author: CP
+ * @Date: 2024-01-09 15:05:40
+ * @Description: 
+-->
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
+// import { ZInput } from '@apps/ui'
 </script>
 
 <template>
   <header>
     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
+    <z-input />
+    <z-button>
+      这是个按钮
+    </z-button>
     <div class="wrapper">
       <HelloWorld msg="You did it!" />
 

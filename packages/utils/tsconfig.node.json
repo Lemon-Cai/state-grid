@@ -7,5 +7,5 @@
     "allowSyntheticDefaultImports": true
   },
 
-  "include": ["packages/**/vite.config.ts", "scripts", "packages/utils/paths.ts"],
+  "include": ["path.ts"],
 }

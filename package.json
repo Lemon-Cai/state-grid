@@ -4,6 +4,8 @@
   "version": "0.0.0",
   "scripts": {
     "start": "node ./scripts/start.js",
+    "start:main": "pnpm run -C packages/base dev",
+    "build:ui": "pnpm run -C packages/components1 build",
     "prepare": "husky install",
     "clean": "pnpm recursive exec -- rm -rf node_modules"
   },
