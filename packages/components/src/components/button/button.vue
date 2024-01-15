@@ -21,5 +21,11 @@ import { ElButton } from 'element-plus'
 // })
 
 </script>
+
+<script lang="ts">
+  export default {
+    name: "ZButton",
+  }
+</script>
 <style scoped lang='scss'>
 </style>

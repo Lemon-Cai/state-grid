@@ -14,11 +14,11 @@
 
 import type { App } from 'vue'
 
-import 'element-plus/dist/index.css'
+// import 'element-plus/dist/index.css'
 
 import * as components from './src'
 
-// import './src/styles.ts'
+import './src/styles.ts'
 
 export * from './src'
 

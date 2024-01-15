@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "node ./scripts/start.js",
-    "start:main": "pnpm run -C packages/base dev",
-    "build:ui": "pnpm run -C packages/components1 build",
+    "start:main": "pnpm run -C apps/base dev",
+    "build:ui": "pnpm run -C packages/components build",
+    "build:theme": "gulp build --gulpfile packages/theme-chalk/gulpfile.js",
     "prepare": "husky install",
     "clean": "pnpm recursive exec -- rm -rf node_modules"
   },
@@ -16,6 +17,7 @@
   "dependencies": {
     "axios": "^1.6.5",
     "inquirer": "^9.2.12",
+    "js-cookie": "^3.0.5",
     "lodash": "^4.17.21",
     "nanoid": "^5.0.4",
     "sass": "^1.69.7",

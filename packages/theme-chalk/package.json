@@ -1,0 +1,17 @@
+{
+  "name": "theme-chalk",
+  "version": "1.0.0",
+  "description": "主题配置项目",
+  "author": "Lemon·C",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [],
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^9.0.0",
+    "gulp-cssmin": "^0.2.0",
+    "gulp-dart-sass": "^1.1.0",
+    "gulp-rename": "^2.0.0"
+  }
+}

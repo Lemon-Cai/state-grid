@@ -20,7 +20,11 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "baseUrl": "./",
+    "paths": {
+      "@apps/components": ["packages/components"]
+    }
   },
   "exclude": ["node_modules", "**/dist"],
   "include": ["packages", "packages/**src/**/*.ts", "packages/src/**/*.tsx", "packages/src/**/*.vue"],

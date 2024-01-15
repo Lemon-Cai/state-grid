@@ -19,6 +19,11 @@ export default defineConfig({
     outDir: [resolve(componentRoot, 'es'), resolve(componentRoot, 'lib')]
   })],
   build: {
+    target: 'modules',
+    //打包文件目录
+    outDir: resolve(componentRoot, 'es'),
+    //压缩
+    minify: true,
     lib: {
       entry: './index.ts',
       // name: 'ui',

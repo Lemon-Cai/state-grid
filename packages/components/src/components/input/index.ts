@@ -1,3 +1,8 @@
+/*
+ * @Author: CP
+ * @Date: 2024-01-12 15:53:00
+ * @Description: 
+ */
 
 import type { App } from 'vue'
 
@@ -9,3 +14,5 @@ export default Object.assign(Input, {
     app.component(Input.name, Input);
   }
 })
+
+// export default Input
