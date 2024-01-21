@@ -1,8 +1,15 @@
+/*
+ * @Author: CP
+ * @Date: 2024-01-15 15:23:17
+ * @LastEditors: 
+ * @Description: 
+ */
 import { ElNotification } from 'element-plus'
 
-import 'element-plus/es/components/notification/style'
-export const RECEIVE_MESSAGE = 'receiveMessage'
+// import 'element-plus/es/components/notification/style'
 import WujieVue from 'wujie-vue3'
+
+export const RECEIVE_MESSAGE = 'receiveMessage'
 
 const { bus } = WujieVue
 

@@ -9,4 +9,8 @@ export { default as ZInput  } from './components/input'
 
 export { default as ZSelect } from './components/select'
 
+export { default as ZPage } from './components/page'
+
+export * from './components/page'
+
 import './styles.ts'

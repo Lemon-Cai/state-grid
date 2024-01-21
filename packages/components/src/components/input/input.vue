@@ -4,7 +4,7 @@
  * @Description: 
 -->
 <template>
-  <ElInput v-bind="$attrs" class="z_input">
+  <ElInput class="z_input">
     <template v-for="(slot, slotName) in $slots" #[slotName] >
       <slot :name="slotName" v-bind="slot" />
     </template>

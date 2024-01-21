@@ -4,7 +4,7 @@
  * @Description: 
 -->
 <template>
-  <ElMain v-bind="$attrs" class="zxhc_page_content">
+  <ElMain class="zxhc_page_content">
     <template v-for="(slot, slotName) in $slots" #[slotName]>
       <slot :name="slotName" v-bind="slot" />
     </template>
@@ -16,7 +16,7 @@ import { ElMain } from 'element-plus'
 
 </script>
 
-<script>
+<script lang="ts">
 export default {
   name: 'ZMain'
 }

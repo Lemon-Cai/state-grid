@@ -4,7 +4,7 @@
  * @Description: 
 -->
 <template>
-  <ElButton v-bind="$attrs">
+  <ElButton>
     <template v-for="(slot, slotName) in $slots" #[slotName] >
       <slot :name="slotName" v-bind="slot" />
     </template>

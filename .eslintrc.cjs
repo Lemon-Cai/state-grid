@@ -39,6 +39,7 @@ module.exports = {
     "@typescript-eslint/no-explicit-any": 0,
     "vue/multi-word-component-names": ["error", {
       "ignores": []
-    }]
+    }],
+    "vue/require-default-prop": 0
   }
 }

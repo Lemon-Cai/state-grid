@@ -4,7 +4,7 @@
  * @Description: 
 -->
 <template>
-  <ElContainer :direction="props.direction" v-bind="$attrs" class="zxhc_page">
+  <ElContainer :direction="layoutType" class="zxhc_page">
     <template v-for="(slot, slotName) in $slots" #[slotName]>
       <slot :name="slotName" v-bind="slot" />
     </template>
@@ -13,20 +13,37 @@
 
 <script lang="ts" setup>
 import { ElContainer } from 'element-plus'
+import { computed, useSlots, type Component, type VNode } from 'vue'
 
 const props = defineProps({
   /**
    * @description layout direction for child elements, 默认垂直
    */
   direction: {
-    type: String,
-    default: 'vertical'
+    type: String
+    // default: 'vertical'
   }
 })
+const slots = useSlots()
 
+const layoutType = computed(() => {
+  if (props.direction) {
+    return props.direction
+  }
+  if (slots && slots.default) {
+    const vNodes: VNode[] = slots.default()
+    const bool = vNodes.some((vNode) => {
+      const tag = (vNode.type as Component).name
+      return tag === 'ZHeader' || tag === 'ZFooter'
+    })
+    return bool ? 'vertical' : 'horizontal'
+  } else {
+    return 'horizontal'
+  }
+})
 </script>
 
-<script>
+<script lang="ts">
 export default {
   name: 'ZPage'
 }

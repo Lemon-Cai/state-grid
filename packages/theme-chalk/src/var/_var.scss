@@ -1,5 +1,16 @@
 // 颜色
-$color: white;
+// $color-white: map.get($colors, 'white') !default;
+// $color-black: map.get($colors, 'black') !default;
+
+$--color-white: '#FFFFFF';
+$--color-black: '#000000';
+// 配置颜色变量, 这里就简单使用element-ui的颜色配置
+$--color-primary: '#409EFF';
+$--color-success: '#67C23A';
+$--color-warning: '#E6A23C';
+$--color-danger: '#F56C6C';
+$--color-info: '#909399';
+
 // 字体
 $fontSize: 14px;
 // 边距

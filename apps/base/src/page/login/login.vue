@@ -1,3 +1,9 @@
+<!--
+ * @Author: CP
+ * @Date: 2024-01-15 15:59:27
+ * @LastEditors: Please set LastEditors
+ * @Description: 
+-->
 <template>
   <div class="login-container" ref="login" @keyup.enter.native="handleLogin">
     <top-color v-show="false"></top-color>
@@ -27,15 +33,17 @@
   </div>
 </template>
 <script>
-import userLogin from './userlogin'
-import codeLogin from './codelogin'
-import thirdLogin from './thirdlogin'
 import { mapGetters } from 'vuex'
 import { dateFormat } from '@/util/date'
 import { validatenull } from '@/util/validate'
+import { getQueryString, getTopUrl } from '@/util/util'
+
 import topLang from '@/page/index/top/top-lang'
 import topColor from '@/page/index/top/top-color'
-import { getQueryString, getTopUrl } from '@/util/util'
+
+import userLogin from './userlogin'
+import codeLogin from './codelogin'
+import thirdLogin from './thirdlogin'
 
 export default {
   name: 'login',

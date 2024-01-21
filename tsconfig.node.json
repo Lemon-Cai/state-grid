@@ -1,11 +1,21 @@
 {
+  "extends": "@tsconfig/node18/tsconfig.json",
+
+  "include": [
+    "vite.config.*",
+    "vitest.config.*",
+    "cypress.config.*",
+    "nightwatch.conf.*",
+    "playwright.config.*",
+    "packages/**/vite.config.ts",
+    "scripts/**/*",
+    "packages/utils/**/*.ts",
+    "packages/theme-chalk/*"
+  ],
   "compilerOptions": {
     "composite": true,
-    "skipLibCheck": true,
     "module": "ESNext",
-    "moduleResolution": "bundler",
-    "allowSyntheticDefaultImports": true
-  },
-
-  "include": ["packages/**/vite.config.ts", "scripts"],
+    "moduleResolution": "Bundler",
+    "types": ["node"]
+  }
 }

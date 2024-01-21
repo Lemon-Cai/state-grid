@@ -4,7 +4,7 @@
  * @Description: 
 -->
 <template>
-  <ElHeader v-bind="$attrs" class="zxhc_page_header">
+  <ElHeader class="zxhc_page_header">
     <template v-for="(slot, slotName) in $slots" #[slotName]>
       <slot :name="slotName" v-bind="slot" />
     </template>
@@ -16,7 +16,7 @@ import { ElHeader } from 'element-plus'
 
 </script>
 
-<script>
+<script lang="ts">
 export default {
   name: 'ZHeader'
 }

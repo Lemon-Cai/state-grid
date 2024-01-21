@@ -1,0 +1,9 @@
+// 命名空间，组件的前缀 zxhc。比如：z-button
+$namespace: "z-";
+
+// 组件状态  is-disable
+$state-prefix: 'is-';
+// 组件修饰符 .z-button--primary
+$modifier-separator: '--';
+// 组件分割 .z-button__header
+$element-separator: '__'

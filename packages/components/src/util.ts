@@ -1,6 +1,15 @@
+/*
+ * @Author: CP
+ * @Date: 2024-01-12 15:53:00
+ * @LastEditors: Please set LastEditors
+ * @Description: 
+ */
 import type { App } from "vue";
 
-import type { WithInstallFunction } from './type'
+import type { WithInstallFunction, SFCWithInstall } from './type'
+
+// import { NOOP } from './type'
+
 
 export const withInstall = <T, E extends Record<string, any>>(main: T, extra?: E) => {
   const c = main as WithInstallFunction<T>;
@@ -19,3 +28,10 @@ export const withInstall = <T, E extends Record<string, any>>(main: T, extra?: E
 
   return main;
 };
+
+
+export const withNoopInstall = <T>(component: T) => {
+  ;(component as SFCWithInstall<T>).install = () => {}
+
+  return component as SFCWithInstall<T>
+}

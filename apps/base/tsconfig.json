@@ -1,21 +1,23 @@
 {
+  "extends": "../../tsconfig.app.json",
   "files": [],
   "references": [
     {
-      "path": "../../tsconfig.json"
-    },
-    {
-      "path": "./tsconfig.node.json"
+      "path": "../../tsconfig.node.json"
     }
   ],
-  "include": ["env.d.ts", "src/**/*", "src/**/*.vue"],
-  "exclude": ["src/**/__tests__/*"],
+
+  "include": ["env.d.ts", "src/**/*", "src/**/*.vue", "src/**/*.ts", "src/**/*.d.ts"],
+  "exclude": ["src/**/__tests__/*", "node_modules"],
   "compilerOptions": {
+    "allowJs": true,
     "composite": true,
     "noEmit": true,
-    "baseUrl": ".",
+    "skipLibCheck": true,
+    "noImplicitAny": false,
+    "baseUrl": "./",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["src/*"]
     }
   },
 }

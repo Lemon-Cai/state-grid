@@ -4,7 +4,7 @@
  * @Description: 
 -->
 <template>
-  <ElFooter v-bind="$attrs" class="zxhc_page_footer">
+  <ElFooter class="zxhc_page_footer">
     <template v-for="(slot, slotName) in $slots" #[slotName]>
       <slot :name="slotName" v-bind="slot" />
     </template>
@@ -17,7 +17,7 @@ import { ElFooter } from 'element-plus'
 
 </script>
 
-<script>
+<script lang="ts">
 export default {
   name: 'ZFooter'
 }

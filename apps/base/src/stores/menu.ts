@@ -1,15 +1,22 @@
+/*
+ * @Author: CP
+ * @Date: 2024-01-15 15:32:42
+ * @LastEditors: Please set LastEditors
+ * @Description: 
+ */
 import { defineStore } from 'pinia'
 import { reactive } from 'vue'
 import type { RouteRecordRaw } from 'vue-router'
 
 import { menuList as menu } from '@/config/menus'
-import type { Menu } from '@/config/menus'
-import router from '@/router'
+// import type { Menu } from '@/config/menus'
+import router from '@/router/router'
 
-const globs = import.meta.glob('../views/*.vue')
+const globs = import.meta.glob('../views/**/*.vue') // TODO: import.meta.glob('../views/**/*.vue')
+const pageGlobs = import.meta.glob('../page/**/index.vue')
 
 // menu转Routes
-function transformRoutes(menus: Menu[], parentPath = ''): RouteRecordRaw[] {
+function transformRoutes(menus: Menu.MenuOptions[], parentPath = ''): RouteRecordRaw[] {
   const res: RouteRecordRaw[] = []
   for (const item of menus) {
     const { path, component, key, children } = item
@@ -21,20 +28,28 @@ function transformRoutes(menus: Menu[], parentPath = ''): RouteRecordRaw[] {
     // 处理一级路由
     if (!parentPath && (!children || children?.length === 0)) {
       routeItem.name = `top${item.key}`
-      routeItem.component = () => import('@/views/Layout.vue')
+      routeItem.component = () => import('@/page/Layout/index.vue')
       routeItem.path = ''
       routeItem.children = [ {
         name: item.key + '',
         path: `/${item.path}`
       } as RouteRecordRaw ]
-      if (component) {
-        routeItem.children[0].component = globs[`../views/${component}`]
+      if (component === "Layout") {
+        // 框架布局
+        routeItem.component = pageGlobs[`../page/${component}/index.vue`]
+      } else if (component) {
+        // 页面
+        routeItem.component = globs[`../views/${component}.vue`]
       }
       res.push(routeItem)
       continue
     }
     routeItem.path = parentPath + '/' + path
-    if (component) {
+    if (component === "Layout") {
+      // 框架布局
+      routeItem.component = pageGlobs[`../page/${component}/index.vue`]
+    } else if (component) {
+      // 页面
       routeItem.component = globs[`../views/${component}`]
     }
     if (children) {
@@ -46,7 +61,7 @@ function transformRoutes(menus: Menu[], parentPath = ''): RouteRecordRaw[] {
 }
 
 // 组合menu完整path
-function combineMenuPath(menus: Menu[], parentPath = ''): Menu[] {
+function combineMenuPath(menus: Menu.MenuOptions[], parentPath = ''): Menu.MenuOptions[] {
   return menus.map((item) => {
     const path = `${parentPath}/${item.path}`
     if (item.children) {
@@ -60,19 +75,19 @@ function combineMenuPath(menus: Menu[], parentPath = ''): Menu[] {
   })
 }
 
-function flatMenu(menu: Menu[]): Menu[] {
+function flatMenu(menu: Menu.MenuOptions[]): Menu.MenuOptions[] {
   return menu.reduce((res, cur) => {
     if (cur.children && cur.children.length > 0 ) {
       res.push(...flatMenu(cur.children))
     }
     res.push(cur)
     return res
-  }, [] as Menu[])
+  }, [] as Menu.MenuOptions[])
 }
 
 export const useMenuStore = defineStore('menu', () => {
-  const menuList = reactive<Menu[]>(combineMenuPath(menu))
-  const flattenMenuList = reactive<Menu[]>(flatMenu(menuList))
+  const menuList = reactive<Menu.MenuOptions[]>(combineMenuPath(menu))
+  const flattenMenuList = reactive<Menu.MenuOptions[]>(flatMenu(menuList))
 
   const addRoutes = () => {
     transformRoutes(menu).forEach(item => router.addRoute(item))

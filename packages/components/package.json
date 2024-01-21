@@ -20,8 +20,8 @@
   },
   "style": "es/style.css",
   "scripts": {
-    "dev": "vite",
-    "build": "vue-tsc && vite build",
+    "build": "vite build",
+    "type-check": "vue-tsc",
     "preview": "vite preview"
   },
   "dependencies": {
